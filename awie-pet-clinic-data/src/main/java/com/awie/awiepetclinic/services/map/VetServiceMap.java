@@ -3,9 +3,9 @@ package com.awie.awiepetclinic.services.map;
 import java.util.Set;
 
 import com.awie.awiepetclinic.model.Vet;
-import com.awie.awiepetclinic.services.CrudService;
+import com.awie.awiepetclinic.services.VetService;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long>{
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService{
 
 	@Override
 	public Set<Vet> findAll() {
