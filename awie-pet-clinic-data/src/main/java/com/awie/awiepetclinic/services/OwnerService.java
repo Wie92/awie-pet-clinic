@@ -4,14 +4,8 @@ import java.util.Set;
 
 import com.awie.awiepetclinic.model.Owner;
 
-public interface OwnerInterface {
+public interface OwnerService extends CrudService<Owner, Long>{
 
 	Owner findByLasName(String lastName);
-	
-	Owner findById(Long id);
-	
-	Owner save(Owner owner);
-	
-	Set<Owner> findAll();
-	
+
 }
