@@ -2,9 +2,12 @@ package com.awie.awiepetclinic.services.map;
 
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
 import com.awie.awiepetclinic.model.Vet;
 import com.awie.awiepetclinic.services.VetService;
 
+@Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService{
 
 	@Override
