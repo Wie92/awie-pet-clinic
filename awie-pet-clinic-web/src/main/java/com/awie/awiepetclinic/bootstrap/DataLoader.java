@@ -10,10 +10,12 @@ import com.awie.awiepetclinic.model.Pet;
 import com.awie.awiepetclinic.model.PetType;
 import com.awie.awiepetclinic.model.Speciality;
 import com.awie.awiepetclinic.model.Vet;
+import com.awie.awiepetclinic.model.Visit;
 import com.awie.awiepetclinic.services.OwnerService;
 import com.awie.awiepetclinic.services.PetTypeService;
 import com.awie.awiepetclinic.services.SpecialityService;
 import com.awie.awiepetclinic.services.VetService;
+import com.awie.awiepetclinic.services.VisitService;
 
 @Component
 public class DataLoader implements CommandLineRunner{
@@ -22,13 +24,16 @@ public class DataLoader implements CommandLineRunner{
 	private final VetService vetService;
 	private final PetTypeService petTypeService;
 	private final SpecialityService specialityService;
+	private final VisitService visitService;
 	
-	
-	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+	public DataLoader(OwnerService ownerService, VetService vetService, 
+			PetTypeService petTypeService, SpecialityService specialityService,
+			VisitService visitService) {
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 		this.petTypeService = petTypeService;
 		this.specialityService = specialityService;
+		this.visitService = visitService;
 	}
 	
 	@Override
@@ -102,8 +107,18 @@ public class DataLoader implements CommandLineRunner{
 		owner2.getPets().add(fionasPet);
 			
 		ownerService.save(owner2);
+
+		System.out.println("Loaded Owners...");
 		
-		System.out.println("Loades Owners...");
+		
+		Visit catVisit = new Visit();
+		catVisit.setPet(fionasPet);
+		catVisit.setDate(LocalDate.now());
+		catVisit.setDescription("Sneezy Kitty");
+		
+		visitService.save(catVisit);
+		
+		System.out.println("Loaded Visit");
 		
 		Vet vet1 = new Vet();
 		vet1.setFirstName("Sam");
@@ -119,7 +134,7 @@ public class DataLoader implements CommandLineRunner{
 		
 		vetService.save(vet2);
 		
-		System.out.println("Loades Vets...");
+		System.out.println("Loaded Vets...");
 	}
 	
 }
