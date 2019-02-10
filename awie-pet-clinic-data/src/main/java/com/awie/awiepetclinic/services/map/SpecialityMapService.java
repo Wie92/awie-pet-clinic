@@ -8,7 +8,7 @@ import com.awie.awiepetclinic.model.Speciality;
 import com.awie.awiepetclinic.services.SpecialityService;
 
 @Service
-public class SpecialityServiceMap extends AbstractMapService<Speciality, Long> implements SpecialityService{
+public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialityService{
 
 	@Override
 	public Set<Speciality> findAll() {
