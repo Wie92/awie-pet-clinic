@@ -6,6 +6,6 @@ import com.awie.awiepetclinic.model.Owner;
 
 public interface OwnerService extends CrudService<Owner, Long>{
 
-	Owner findByLasName(String lastName);
+	Owner findByLastName(String lastName);
 
 }
